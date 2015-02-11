@@ -1,12 +1,14 @@
 Rails.application.routes.draw do
   
+  
   # Set root
   root to: 'welcome#index'
   
   # Set route to about so that users can just type ../about
   get 'about' => 'welcome#about'
 
-  
+  # Devise
+  devise_for :users
   
   
   
