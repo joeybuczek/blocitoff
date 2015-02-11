@@ -17,6 +17,9 @@ gem 'coffee-rails', '~> 4.0.0'
 # bootstrap css
 gem 'bootstrap-sass', '~> 3.3.3'
 
+# Environment variables and sensitive data
+gem 'figaro', '1.0'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
