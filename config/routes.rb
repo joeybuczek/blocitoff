@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  
+  # Set root
+  root to: 'welcome#index'
+  
+  # Set route to about so that users can just type ../about
+  get 'about' => 'welcome#about'
+
+  
+  
+  
+  
+  
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
