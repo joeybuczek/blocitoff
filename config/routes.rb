@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   
-  
+  # To-Do List routes
+  resources :lists, except: [:index]
+
   # Set root
   root to: 'welcome#index'
   
