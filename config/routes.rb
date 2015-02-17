@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
   
+  get 'items/new'
+
   # To-Do List routes
-  resources :lists, except: [:index]
+  resources :lists, except: [:index] do
+    resources :items, only: [:create]
+  end
 
   # Set root
   root to: 'welcome#index'

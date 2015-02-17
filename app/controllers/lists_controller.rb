@@ -3,6 +3,7 @@ class ListsController < ApplicationController
   
   def show
     @list = current_user.list
+    @items = Item.all
   end
 
   def new
@@ -15,7 +16,7 @@ class ListsController < ApplicationController
     
     if @list.save
       flash[:notice] = "To-Do List setup successfully!"
-      redirect_to list_path(@list)
+      go_back_to_list
     else
       flash[:error] = "There was an error saving the To-Do List. Please try again."
       render :new
@@ -31,7 +32,7 @@ class ListsController < ApplicationController
     
     if @list.update_attributes(list_params)
       flash[:notice] = "To-Do List updated successfully!"
-      redirect_to list_path(@list)
+      go_back_to_list
     else
       flash[:error] = "There was an error updating the To-Do List. Please try again."
       render :edit
@@ -46,7 +47,7 @@ class ListsController < ApplicationController
       redirect_to root_path
     else
       flash[:error] = "There was an error deleting the To-Do List. Please try again."
-      redirect_to list_path(@list)
+      go_back_to_list
     end
   end
   
@@ -54,6 +55,10 @@ class ListsController < ApplicationController
   
   def list_params
     params.require(:list).permit(:title)
+  end
+  
+  def go_back_to_list
+    redirect_to list_path(@list)
   end
   
 end
