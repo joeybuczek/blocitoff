@@ -14,8 +14,11 @@
 
       <hr>
 
-    <% @items.each do |item| %>
-        <%= render partial: "items/item", locals: { item: item } %>
+      
+      <% @items.each_with_index do |item, index| %>
+        <% unless index >= @items.count %>
+          <%= render partial: "items/item", locals: { item: item } %>
+        <% end %>
       <% end %>
 
     

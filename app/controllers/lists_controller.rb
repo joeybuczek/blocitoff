@@ -3,7 +3,7 @@ class ListsController < ApplicationController
   
   def show
     @list = current_user.list
-    @items = Item.all
+    @items = current_user.list.items
   end
 
   def new
