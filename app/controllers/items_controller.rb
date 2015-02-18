@@ -14,6 +14,19 @@ class ItemsController < ApplicationController
     end
   end
   
+  def destroy
+    @list = current_user.list
+    @item = Item.find(params[:id])
+    
+    if @item.destroy
+      flash[:notice] = "To-Do item completed!"
+      go_back_to_list
+    else
+      flash[:error] = "There was an error completing this item. Please try again."
+      go_back_to_list
+    end
+  end
+  
   private
   
   def item_params

@@ -1,5 +1,11 @@
-<div>
-  <p><%= item.name %></p>
-  <small>Time remaining: n days</small>
-  <br/><br/>
-</div>
+<tr>
+  <td>
+    <%= item.name %>
+  </td>
+  <td>
+    <small>n days</small>
+  </td>
+  <td>
+    <small><%= link_to "", [list, item], method: :delete, class: "glyphicon glyphicon-ok" %></small>
+  </td>
+</tr>

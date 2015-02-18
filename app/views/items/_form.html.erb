@@ -1,7 +1,7 @@
 <%= form_for [list, list.items.new] do |f| %>
   <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control', placeholder: 'Enter To-Do item name' %>
+    <%= f.label "New To-Do Item:" %>
+    <%= f.text_field :name, class: 'form-control', placeholder: 'What do you need to do?' %>
   </div>
 
   <div class="form-group">

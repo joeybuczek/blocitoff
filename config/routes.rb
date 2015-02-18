@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
   # To-Do List routes
   resources :lists, except: [:index] do
-    resources :items, only: [:create]
+    resources :items, only: [:create, :destroy]
   end
 
   # Set root

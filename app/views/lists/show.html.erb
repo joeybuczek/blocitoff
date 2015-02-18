@@ -1,28 +1,45 @@
+<% if @list.nil? %>
+  <%= link_to "Set up your To-Do List", new_list_path, class: 'btn btn-default' %>
+<% else %>
+    
 <div class="row">
   <div class="col-md-12">
-    
-    <% if @list.nil? %>
-      <%= link_to "Set up your To-Do List", new_list_path, class: 'btn btn-default' %>
-    <% else %>
     <h1> 
       <%= @list.title %>
-      <%= link_to "Edit", edit_list_path, class: 'btn btn-default btn-list-edit' %> 
-      <%= link_to "Delete", @list, method: :delete ,class: 'btn btn-default btn-list-edit', data: { confirm: 'Are you sure you want to delete this To-Do List?' } %>
+      <%= link_to "Edit List", edit_list_path, class: 'btn btn-default btn-list-edit' %> 
+      <%= link_to "Delete List", @list, method: :delete ,class: 'btn btn-default btn-list-edit', data: { confirm: 'Are you sure you want to delete this To-Do List?' } %>
     </h1> 
     
-      <%= render partial: "items/form", locals: { list: @list } %>
-
-      <hr>
-
-      
-      <% @items.each_with_index do |item, index| %>
-        <% unless index >= @items.count %>
-          <%= render partial: "items/item", locals: { item: item } %>
+    <%= render partial: "items/form", locals: { list: @list } %>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <td>
+            <strong>To-Do Item</strong>
+          </td>
+          <td>
+            <strong>Days Left</strong>
+          </td>
+          <td>
+            <strong>Complete?</strong>
+          </td>
+        </tr>
+      </thead>
+      <tbody>
+  
+        <% @items.each_with_index do |item, index| %>
+          <% unless index >= @items.count %>
+            <%= render partial: "items/item", locals: { item: item, list: @list} %>
+          <% end %>
         <% end %>
-      <% end %>
+  
+      </tbody>
+    </table>
 
-    
-    <% end %>
-    
   </div>
 </div>
+
+<% end %>
+    
+
