@@ -1,11 +1,11 @@
-<tr>
-  <td>
+<tr id="item-<%= item.id %>">
+  <td class="width-percent-60">
     <%= item.name %>
   </td>
-  <td>
+  <td class="width-percent-20">
     <small>n days</small>
   </td>
-  <td>
-    <small><%= link_to "", [list, item], method: :delete, class: "glyphicon glyphicon-ok" %></small>
+  <td class="width-percent-20">
+    <small><%= link_to "", [list, item], method: :delete, class: "glyphicon glyphicon-ok", remote: true %></small>
   </td>
 </tr>
