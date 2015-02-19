@@ -55,3 +55,6 @@ gem 'spring',        group: :development
 
 # Devise
 gem 'devise'
+
+# whenever - automated cron for rake tasks
+gem 'whenever', :require => false
