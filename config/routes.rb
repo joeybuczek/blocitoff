@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   resources :lists, except: [:index] do
     resources :items, only: [:create, :destroy]
   end
+  
+  # Clear list items
+  get 'items/clear' => 'items#clear', :as => :clear_items
 
   # Set root
   root to: 'welcome#index'

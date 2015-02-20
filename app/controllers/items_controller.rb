@@ -15,7 +15,13 @@ class ItemsController < ApplicationController
     respond_with(@item) do |format|
       format.html { redirect_to list_path(@list) }
     end
+  end
+  
+  def clear
+    @list = current_user.list
+    @list.items.destroy_all
     
+    redirect_to list_path(@list)
   end
   
   def destroy
