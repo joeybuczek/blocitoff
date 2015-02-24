@@ -17,7 +17,7 @@
       <% if current_user %>
         <li>
           <% if current_user.list.nil? %>
-            <%= link_to "Setup To-Do List", new_list_path %>
+            <%= link_to ">>> Let's Get Started! <<<", new_list_path %>
           <% else %>
             <%= link_to "To-Do List", list_path(current_user.list) %>
           <% end %>

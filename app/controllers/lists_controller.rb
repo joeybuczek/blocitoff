@@ -7,20 +7,13 @@ class ListsController < ApplicationController
   end
 
   def new
-    @list = List.new
+    create
   end
   
   def create
-    @list = List.new(list_params)
-    @list.user = current_user
-    
-    if @list.save
-      flash[:notice] = "To-Do List setup successfully!"
-      go_back_to_list
-    else
-      flash[:error] = "There was an error saving the To-Do List. Please try again."
-      render :new
-    end
+    @list = List.new(user: current_user, title: "My To-Do List")
+    @list.save
+    go_back_to_list
   end
 
   def edit

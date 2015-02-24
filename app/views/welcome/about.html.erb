@@ -6,7 +6,14 @@
       <h1>Why Blocitoff?</h1>
       <p>To-Do lists are notorious for collecting junk: to-do items that you want to remember, but are not very important and thus consistently get put-off. To address this problem of to-do list clutter, we've created Blocitoff.</p>
       <p>This app will help you keep to-do lists manageable by automatically deleting items that have not been completed after seven days. Our belief is that if the to-do item is not important enough to be completed in seven days, it doesn't belong on your to-do list.</p>
-      <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-info btn-lg' %>
+      
+      <% if current_user %>
+      
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path, class: 'btn btn-info btn-lg' %>  
+          &nbsp
+        <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-info btn-lg' %>  
+      <% end %>
     </div>  
   </div>
 </div>

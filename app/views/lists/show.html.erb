@@ -1,16 +1,13 @@
 <% if @list.nil? %>
   <%= link_to "Set up your To-Do List", new_list_path, class: 'btn btn-default' %>
 <% else %>
-    
+
 <div class="row">
   <div class="col-md-12">
     <h1> 
       <%= @list.title %>
       <%= link_to "Edit List", edit_list_path, class: 'btn btn-default btn-list-nudge' %> 
       <%= render partial: 'items/clear' %>
-      <!-- 
-      link_to "Clear List", clear_list_path, class: 'btn btn-default btn-list-edit', data: { confirm: 'Are you sure you want to clear this list?' }
-      -->
     </h1> 
     
     <%= render partial: "items/form", locals: { list: @list } %>
